@@ -1,9 +1,0 @@
-{
-    "name": "VeTab",
-    "description": "仿edge的垂直标签页",
-    "version": "1.0",
-    "manifest_version": 2,
-    "browser_action": {
-      "default_popup": "popup.html"
-    }
-}
