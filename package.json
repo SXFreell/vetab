@@ -10,10 +10,12 @@
     "preview": "vite preview -c vite.popup.config.ts"
   },
   "dependencies": {
+    "less": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.258",
     "@types/node": "^20.11.5",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",

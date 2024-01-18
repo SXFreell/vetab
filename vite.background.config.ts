@@ -10,7 +10,7 @@ export default defineConfig({
     outDir: CRX_BACKGROUND_OUTDIR,
     lib: {
         entry: [path.resolve(__dirname, 'src/background/index.tsx')],
-        formats: ['cjs'],
+        formats: ['es'],
         fileName: () => {
             return 'background.js'
         }
