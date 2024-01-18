@@ -10,7 +10,7 @@ export default defineConfig({
     outDir: CRX_CONTENT_OUTDIR,
     lib: {
         entry: [path.resolve(__dirname, 'src/content/index.tsx')],
-        formats: ['cjs'],
+        formats: ['es'],
         fileName: () => {
             return 'content.js'
         }
