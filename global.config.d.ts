@@ -1,0 +1,5 @@
+declare CRX_OUTDIR: string
+declare CRX_BACKGROUND_OUTDIR: string
+declare CRX_CONTENT_OUTDIR: string
+
+export { CRX_OUTDIR, CRX_BACKGROUND_OUTDIR, CRX_CONTENT_OUTDIR }

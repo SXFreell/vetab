@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "VeTab",
+    "description": "仿edge侧边标签栏",
+    "version": "1.0",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>","*://*/*"],
+        "js": ["content.js"],
+        "css": ["content.css"],
+        "run_at": "document_start"
+    }],
+    "permissions": ["tabs", "storage"]
+}

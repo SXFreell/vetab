@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "vite.popup.config.ts",
+    "vite.background.config.ts",
+    "vite.content.config.ts",
+    "global.config.js",
+    "global.config.d.ts",
+  ]
+}
