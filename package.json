@@ -10,6 +10,8 @@
     "preview": "vite preview -c vite.popup.config.ts"
   },
   "dependencies": {
+    "@arco-design/web-react": "^2.58.3",
+    "@arco-themes/react-suretheme": "^0.0.7",
     "less": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

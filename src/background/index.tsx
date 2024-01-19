@@ -29,10 +29,18 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 //     }
 // })
 
-// 通知content
 chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
-    if (message.type === 'changeTab') {
-        chrome.tabs.update(message.data, { active: true })
+    switch (message.type) {
+        case 'changeTab':
+            chrome.tabs.update(message.data, { active: true })
+            break
+        case 'getTabs':
+            sendTabsToTab(activeTabId)
+            break
+        case 'removeTab':
+            chrome.tabs.remove(message.data)
+            break
+
     }
 })
 

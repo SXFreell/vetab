@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import "./index.less"
-import React from 'react'
+import React, { useEffect } from 'react'
+import {IconClose} from '@arco-design/web-react/icon'
 
 // 添加vetab
 const htmlElement = document.querySelector("html")
@@ -16,6 +17,10 @@ function VeTab() {
             setTabList(message.data)
         }
     })
+
+    useEffect(() => {
+        chrome.runtime.sendMessage({ type: 'getTabs' })
+    }, [])
 
     return (
         <>
@@ -34,6 +39,14 @@ function VeTab() {
                                     <img src={tab.favIconUrl} alt="" />    
                                 </div>
                                 <div className='vetab-content-item-title'>{tab.title}</div>
+                                <div className='vetab-content-item-close'>
+                                    <IconClose style={{color: '#F7F7F7'}}
+                                        onClick={(e: React.MouseEvent) => {
+                                            e.stopPropagation()
+                                            chrome.runtime.sendMessage({ type: 'removeTab', data: tab.id })
+                                        }}
+                                    />
+                                </div>
                             </div>
                         )
                     })
