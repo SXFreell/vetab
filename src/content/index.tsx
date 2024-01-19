@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import "./index.less"
 import React, { useEffect } from 'react'
-import {IconClose} from '@arco-design/web-react/icon'
+import {IconClose, IconPlus} from '@arco-design/web-react/icon'
 
 // 添加vetab
 const htmlElement = document.querySelector("html")
@@ -24,6 +24,12 @@ function VeTab() {
 
     return (
         <>
+            <div className='vetab-header'>
+                <div className='vetab-header-icon'>
+                    
+                </div>
+                <div className='vetab-header-title'></div>
+            </div>
             <div className='vetab-content'>
                 {
                     tabList.map((tab) => {
@@ -52,7 +58,14 @@ function VeTab() {
                     })
                 }
             </div>
-            {/* <div className='vetab-footer'></div> */}
+            <div className='vetab-footer'>
+                <div className='vetab-footer-item'>
+                    <div className='vetab-footer-item-icon'>
+                        <IconPlus style={{color: '#FFF', fontSize: 20, strokeWidth: 3}} />
+                    </div>
+                    <div className='vetab-footer-item-title'>新建标签页</div>
+                </div>
+            </div>
         </>
     )
 }
