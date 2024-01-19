@@ -1,6 +1,7 @@
 html {
     body {
         margin-left: 50px;
+        width: calc(100% - 50px);
         // transform: scale(1); // zhihu有Bug
     }
     #vetab {
@@ -12,6 +13,9 @@ html {
 #vetab {
     ::-webkit-scrollbar {
         display: none;
+    }
+    * {
+        box-sizing: content-box;
     }
     background-color: #222;
     height: 100vh;
@@ -98,7 +102,6 @@ html {
     .vetab-footer {
         margin: 0 10px;
         padding: 5px 0;
-        bottom: 0;
         height: 30px;
         flex-shrink: 0;
         border-top: #666 1px solid;

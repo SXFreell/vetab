@@ -40,7 +40,9 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
         case 'removeTab':
             chrome.tabs.remove(message.data)
             break
-
+        case 'createNewTab':
+            chrome.tabs.create({})
+            break
     }
 })
 

@@ -59,7 +59,9 @@ function VeTab() {
                 }
             </div>
             <div className='vetab-footer'>
-                <div className='vetab-footer-item'>
+                <div className='vetab-footer-item' onClick={()=>{
+                    chrome.runtime.sendMessage({ type: 'createNewTab' })
+                }}>
                     <div className='vetab-footer-item-icon'>
                         <IconPlus style={{color: '#FFF', fontSize: 20, strokeWidth: 3}} />
                     </div>
