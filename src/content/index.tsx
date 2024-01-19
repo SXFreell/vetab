@@ -11,8 +11,7 @@ htmlElement?.insertBefore(vetab, htmlElement.firstChild)
 function VeTab() {
     const [tabList, setTabList] = React.useState<any[]>([])
 
-    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        console.log(message, sender, sendResponse)
+    chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
         if (message.type === 'activeTab') {
             setTabList(message.data)
         }
