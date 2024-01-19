@@ -2,7 +2,10 @@ html {
     body {
         margin-left: 50px;
         width: calc(100% - 50px);
-        // transform: scale(1); // zhihu有Bug
+        transition: all 0.3s ease-in-out;
+        &.vetab-fixed {
+            transform: scale(1);
+        }
     }
     #vetab {
         position: fixed;
@@ -23,28 +26,19 @@ html {
     display: flex;
     flex-direction: column;
     transition: width 0.1s 0s linear, box-shadow 0.1s ease-in-out;
-    &:hover {
+    &:hover, &.vetab-active {
         width: 200px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         transition: width 0.1s 0.5s linear, box-shadow 0.1s ease-in-out;
-    }
-    .vetab-header {
-        height: 40px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .vetab-header-icon {
-            height: 30px;
-            width: 30px;
-            img {
-                height: 16px;
-                width: 16px;
+        .vetab-header {
+            .vetab-header-icon {
+                margin-left: 0;
+                transition: margin-left 0.1s 0.5s linear;
             }
         }
     }
     .vetab-content {
-        flex-grow: 1;
+        height: auto;
         overflow-y: auto;
         overscroll-behavior: contain;
         .vetab-content-item {
@@ -72,7 +66,7 @@ html {
             }
             .vetab-content-item-title {
                 flex-grow: 1;
-                color: #F7F7F7;
+                color: #F7F7F7 !important;
                 font-size: 14px;
                 line-height: 30px;
                 overflow: hidden;
@@ -96,6 +90,44 @@ html {
                         background-color: #fff3;
                     }
                 }
+            }
+        }
+    }
+    .vetab-header {
+        margin: 5px 10px 0 10px;
+        height: 30px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
+        .vetab-header-icon {
+            flex-shrink: 0;
+            height: 30px;
+            width: 30px;
+            border-radius: 4px;
+            margin-left: -50px;
+            transition: margin-left 0.1s 0s linear;
+            &:hover {
+                background-color: #fff3;
+            }
+            svg {
+                height: 18px;
+                width: 18px;
+                margin: 6px;
+            }
+        }
+        .vetab-header-after {
+            flex-shrink: 0;
+            height: 30px;
+            width: 30px;
+            right: 0;
+            border-radius: 4px;
+            &:hover {
+                background-color: #fff3;
+            }
+            svg {
+                height: 18px;
+                width: 18px;
+                margin: 6px;
             }
         }
     }
@@ -125,7 +157,7 @@ html {
             }
             .vetab-footer-item-title {
                 flex-grow: 1;
-                color: #FFF;
+                color: #FFF !important;
                 font-size: 14px;
                 line-height: 30px;
                 overflow: hidden;
