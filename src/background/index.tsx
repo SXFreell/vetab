@@ -22,25 +22,42 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
     sendTabsToTab(activeTabId)
 })
 
-chrome.tabs.query({active: true}, (tabs) => {
-    tabs[0].id && (activeTabId = tabs[0].id)
-    sendTabsToTab(activeTabId)
-})
+// chrome.tabs.query({active: true}, (tabs) => {
+//     if (tabs[0].id) {
+//         activeTabId = tabs[0].id
+//         sendTabsToTab(activeTabId)
+//     }
+// })
 
-// 通知content
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message, sender, sendResponse)
-    if (message.type === 'changeTab') {
-        chrome.tabs.update(message.data, { active: true })
+chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
+    switch (message.type) {
+        case 'changeTab':
+            chrome.tabs.update(message.data, { active: true })
+            break
+        case 'getTabs':
+            sendTabsToTab(activeTabId)
+            break
+        case 'removeTab':
+            chrome.tabs.remove(message.data)
+            break
+        case 'createNewTab':
+            chrome.tabs.create({})
+            break
     }
 })
 
-chrome.tabs.onCreated.addListener((tab) => {
-    console.log(tab)
+chrome.tabs.onCreated.addListener(() => {
     sendTabsToTab(activeTabId)
 })
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    console.log(tabId, changeInfo, tab)
+chrome.tabs.onMoved.addListener(() => {
+    sendTabsToTab(activeTabId)
+})
+
+chrome.tabs.onUpdated.addListener(() => {
+    sendTabsToTab(activeTabId)
+})
+
+chrome.tabs.onRemoved.addListener(() => {
     sendTabsToTab(activeTabId)
 })
